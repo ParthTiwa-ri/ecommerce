@@ -1,0 +1,17 @@
+.cards {
+  margin: 0 6rem;
+
+  margin-top: 7rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 30rem);
+  grid-gap: 3rem;
+  grid-row-gap: 4rem;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  .cards {
+    justify-content: center;
+    margin: 0;
+  }
+}

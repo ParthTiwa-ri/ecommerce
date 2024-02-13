@@ -1,0 +1,66 @@
+.card,
+.card:visited,
+.card:link {
+  width: 27rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
+  border-radius: 6px;
+  height: 40rem;
+  transition: all 500ms ease;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+}
+
+.details {
+  padding: 2.2rem 3.3rem;
+  font-size: 15px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.itemDesc {
+  color: gray;
+  font-size: 1.2rem;
+}
+
+.itemPrice {
+  color: var(--green);
+  font-weight: 800;
+}
+
+.addtocart {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--green);
+  width: 100%;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0 0 6px 6px;
+  color: white;
+}
+
+.addtocart:hover {
+  background-color: var(--darker-green);
+  color: black;
+  cursor: pointer;
+}
+.addtocart > p {
+  font-weight: 800;
+  font-size: 1.2rem;
+}
+
+.img {
+  width: 27rem;
+  height: 17rem;
+  object-fit: cover;
+}
+.card:hover {
+  transform: scale(1.1);
+}
