@@ -8,11 +8,9 @@ import { updateProductList } from "./productSlice";
 import ItemNotFound from "../../ui/ItemNotFound/ItemNotFound";
 
 function Products() {
-  const product = useSelector((state) => state.product.productList);
+  const products = useSelector((state) => state.product.productList);
   const [isLoading, setLoading] = useState(true);
   const dispatch = useDispatch();
-
-  console.log(product);
 
   useEffect(() => {
     async function fetch() {
@@ -28,13 +26,13 @@ function Products() {
 
   if (isLoading) return <Loader />;
 
-  if (product.length === 0) {
+  if (products.length === 0) {
     return <ItemNotFound />;
   }
   return (
     <>
       <div className={styles.cards}>
-        {product.map((item) => (
+        {products.map((item) => (
           <ProductItem key={item.id} item={item} />
         ))}
       </div>
