@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import StarRating from "../../ui/StarRating";
 import { truncateDescription } from "../../util/helper";
 import styles from "./ProductItem.module.css";
 function ProductItem({ item }) {
   return (
     <>
-      <div className={styles.card}>
+      <Link to={`product/${item.id}`} className={styles.card}>
         <div>
           <img className={styles.img} src={item.thumbnail} alt="flag" />
 
@@ -31,7 +32,7 @@ function ProductItem({ item }) {
         <div className={styles.addtocart}>
           <p>Add to Cart</p>
         </div>
-      </div>
+      </Link>
     </>
   );
 }
