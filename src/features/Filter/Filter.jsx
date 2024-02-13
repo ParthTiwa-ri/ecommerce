@@ -24,10 +24,8 @@ function Filter() {
       <Unicons.UilAngleDown />
 
       {isVisible && (
-        <div className={styles.filterMenu}>
-          <p onClick={handleFilterClick} className={styles.p}>
-            Ascending
-          </p>
+        <div onClick={handleFilterClick} className={styles.filterMenu}>
+          <p className={styles.p}>Ascending</p>
         </div>
       )}
     </div>
