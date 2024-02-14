@@ -3,10 +3,7 @@
   margin: 5rem 6rem 4.5rem;
   display: flex;
   justify-content: space-between;
-  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
-
 
 .input input {
   width: 100%; /* or any desired width */
@@ -32,7 +29,6 @@ input {
   font-size: 17px;
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
 
 /* Responsive styles */
 @media only screen and (max-width: 768px) {

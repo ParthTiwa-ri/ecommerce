@@ -14,7 +14,7 @@ function Search() {
 
   useEffect(
     function () {
-      if (searchValue) {
+    {
         fetchProductsSearch(searchValue).then((data) =>
           dispatch(updateProductList(data.products))
         );
