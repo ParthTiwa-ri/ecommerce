@@ -3,11 +3,11 @@
 
   margin-top: 2.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 30rem);
+  grid-template-columns: repeat(auto-fill, 27rem);
   grid-gap: 3rem;
   grid-row-gap: 4rem;
   justify-content: space-between;
-  max-height: 100vh;
+  min-height: 100vh;
   /* overflow: scroll; */
   /* padding-left: 2rem; */
   background-color: var(--very-light-gray);
