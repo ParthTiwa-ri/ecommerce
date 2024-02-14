@@ -18,7 +18,7 @@ export const discountedPrice = (price, discount) => {
     console.error("Invalid input: price and discount must be numbers");
     return NaN;
   }
-  console.log(discount);
+  // console.log(discount);
   // Calculate discounted price
   const discountedPrice = price - (price * discount) / 100;
   return discountedPrice;
