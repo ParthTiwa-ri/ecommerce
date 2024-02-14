@@ -130,7 +130,11 @@
   text-decoration: none;
   padding: 12px 30px;
   transition: all 0.5s;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
+
 .cart-btn:hover {
   background-color: #64af3d;
 }

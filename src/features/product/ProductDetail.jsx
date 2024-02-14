@@ -6,16 +6,23 @@ import Loader from "../../ui/Loader/Loader";
 import Button from "../../ui/Button/Button";
 import * as Unicons from "@iconscout/react-unicons";
 import "./style.css";
-import { formatPrice } from "../../util/helper";
+import { discountedPrice, formatPrice } from "../../util/helper";
 import Header from "../../ui/Header/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem } from "../cart/cartSlice";
+import toast from "react-hot-toast";
 
 function ProductDetail() {
   const [product, setProduct] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+  const dispatch = useDispatch();
 
   const { id } = useParams();
 
+  const cart = useSelector((state) => state.cart.cart);
+
+  const unitPrice = discountedPrice(product.price, product.discountPercentage);
   useEffect(() => {
     async function fetchData() {
       const data = await fetchProductID(id);
@@ -31,6 +38,21 @@ function ProductDetail() {
     setSelectedImageIndex(index);
   };
 
+  function handleAddCart() {
+    const newItem = {
+      itemId: product.id,
+      name: product.title,
+      quantity: 1,
+      unitPrice,
+      totalPrice: unitPrice * 1,
+    };
+    if (cart.find((item) => item.itemId === product.id)) {
+      toast.error("Already in cart");
+    } else {
+      dispatch(addItem(newItem));
+      toast.success("Added to cart successfully");
+    }
+  }
   return (
     <div className={styles.btnpos}>
       <Header />
@@ -91,10 +113,10 @@ function ProductDetail() {
 
           {/* Product Pricing */}
           <div className={styles["product-price"]}>
-            <span>{formatPrice(product.price)}</span>
-            <a href="#" className={styles["cart-btn"]}>
+            <span>{formatPrice(unitPrice)}</span>
+            <button onClick={handleAddCart} className={styles["cart-btn"]}>
               Add to cart
-            </a>
+            </button>
           </div>
         </div>
       </main>

@@ -17,6 +17,11 @@
   --green: rgb(39, 200, 164);
 
   --darker-green: rgb(0, 160, 124);
+  --color-grey-0: #fff;
+  --color-grey-50: #f9fafb;
+
+  --color-grey-700: #374151;
+  --color-grey-800: #1f2937;
 }
 
 * {
@@ -32,5 +37,4 @@ body {
   min-height: 100vh;
   background-color: var(--very-light-gray);
   color: #111517;
-  
 }
