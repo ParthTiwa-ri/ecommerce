@@ -159,6 +159,7 @@
   }
 
   .left-column img {
+    position: relative;
     width: 25rem;
     margin-bottom: 2rem;
     height: 20rem;
@@ -178,6 +179,7 @@
 
 @media (max-width: 535px) {
   .left-column img {
+    position: relative;
     width: 220px;
     top: -85px;
     height: 20rem;

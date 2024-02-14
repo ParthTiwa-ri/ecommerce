@@ -36,9 +36,9 @@ function ProductItem({ item }) {
                   discountedPrice(item.price, item.discountPercentage)
                 )}
               </span>
-              <span className={`${styles.discount} ${styles.fw6}`}>
+              {/* <span className={`${styles.discount} ${styles.fw6}`}>
                 ({item?.discountPercentage}% Off)
-              </span>
+              </span> */}
             </div>
             <StarRating
               maxRating={5} // Optional: Maximum rating, default is 5
