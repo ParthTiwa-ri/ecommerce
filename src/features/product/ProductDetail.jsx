@@ -46,7 +46,7 @@ function ProductDetail() {
           {product.images.map((image, i) => (
             <img
               key={i}
-              className={i !== selectedImageIndex ? styles.hidden : ""}
+              className={i === selectedImageIndex ? styles.active : ""}
               data-image="black"
               src={image}
               alt=""
