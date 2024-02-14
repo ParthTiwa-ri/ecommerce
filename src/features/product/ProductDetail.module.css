@@ -184,7 +184,7 @@
 @media (max-width: 535px) {
   .left-column img {
     width: 220px;
-    left: 1.7rem;
+    left: 1rem;
     top: 0;
     height: 20rem;
     object-fit: contain;
