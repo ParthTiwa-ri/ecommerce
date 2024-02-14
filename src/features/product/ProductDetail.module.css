@@ -157,15 +157,18 @@
   .right-column {
     width: 100%;
   }
-
+  .right-column {
+    margin-top: 23rem;
+  }
   .left-column img {
-    position: relative;
     width: 25rem;
     margin-bottom: 2rem;
     height: 20rem;
     object-fit: contain;
-    right: 0;
-    top: -65px;
+    /* right: 0; */
+    /* top: -65px; */
+    left: 0;
+    top: 0px;
     left: initial;
   }
   .smallImage > img {
@@ -179,7 +182,7 @@
 
 @media (max-width: 535px) {
   .left-column img {
-    position: relative;
+    position: fixed;
     width: 220px;
     top: -85px;
     height: 20rem;
