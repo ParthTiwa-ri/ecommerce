@@ -158,7 +158,7 @@
     width: 100%;
   }
   .right-column {
-    margin-top: 23rem;
+    margin-top: 22rem;
   }
   .left-column img {
     width: 25rem;
@@ -168,7 +168,7 @@
     /* right: 0; */
     /* top: -65px; */
     left: 0;
-    top: 0px;
+    top: 0;
     left: initial;
   }
   .smallImage > img {
@@ -184,12 +184,18 @@
   .left-column img {
     position: fixed;
     width: 220px;
-    top: -85px;
+    left: 1.7rem;
+    top: 13em;
     height: 20rem;
     object-fit: contain;
   }
+
+  .right-column {
+    margin-top: 20rem;
+  }
+
   .smallImage > img {
-    height: 5rem;
+    height: 7rem;
     border-radius: 6px;
     box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
     border: 1px sold gray;
