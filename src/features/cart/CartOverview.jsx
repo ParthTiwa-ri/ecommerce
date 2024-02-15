@@ -25,7 +25,7 @@ function CartOverview() {
   return (
     <>
       <div
-        style={{ backgroundImage: backgroundImg }}
+        style={{ backgroundImage: `url(${backgroundImg})` }}
         className={styles.wrapper}
       >
         <div className={styles.bckcolor}></div>
