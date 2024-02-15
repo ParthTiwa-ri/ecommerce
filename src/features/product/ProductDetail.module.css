@@ -156,6 +156,7 @@
 
 .cart-btn-goto:hover {
   background-color: var(--color-grey-100);
+  box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.5);
 }
 
 .verticalLine {
@@ -265,5 +266,6 @@
 
   .cart-btn-goto:hover {
     background-color: var(--color-grey-100);
+    box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.7);
   }
 }
