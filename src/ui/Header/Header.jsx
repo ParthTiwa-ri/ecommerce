@@ -26,6 +26,7 @@ function Header() {
         {cartLength ? (
           <div className={style.cartNumber}>{cartLength}</div>
         ) : null}
+        <p>Cart</p>
       </div>
     </div>
   );
