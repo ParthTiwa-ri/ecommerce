@@ -49,6 +49,12 @@
   margin-left: 3rem;
   height: 4rem;
 }
+.cartContainer {
+  font-size: 32px;
+}
+.cartContainer > p {
+  font-size: 18px;
+}
 
 @media (max-width: 940px) {
 }
@@ -83,5 +89,17 @@
     gap: 2rem;
     align-items: center;
     /* justify-content: center; */
+  }
+  .cartContainer {
+    font-size: 24px;
+    padding-right: 0.2rem;
+  }
+  .cartContainer > p {
+    font-size: 14px;
+  }
+  .cartNumber {
+    height: 1.8rem;
+    width: 1.8rem;
+    right: 36px;
   }
 }

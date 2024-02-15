@@ -22,9 +22,9 @@ function Header() {
       {/* <Filter /> */}
       <div className={style.cartContainer}>
         {cart.length === 0 ? (
-          <ion-icon size="large" name="cart-outline"></ion-icon>
+          <ion-icon name="cart-outline"></ion-icon>
         ) : (
-          <ion-icon size="large" name="cart"></ion-icon>
+          <ion-icon name="cart"></ion-icon>
         )}
         {cartLength ? (
           <div className={style.cartNumber}>{cartLength}</div>

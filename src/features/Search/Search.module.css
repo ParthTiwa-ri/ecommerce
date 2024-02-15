@@ -72,9 +72,15 @@ input {
 
 @media (max-width: 580px) {
   .search {
-    width: 19rem;
+    width: 20rem;
   }
   .input input {
     font-size: 12px;
+  }
+  .input {
+    height: 3.5rem;
+  }
+  .input input {
+    height: 3.5rem;
   }
 }
