@@ -2,15 +2,22 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Cart from "./pages/Cart";
 import ProductDetail from "./features/product/ProductDetail";
+import Products from "./features/product/Products";
 import { Toaster } from "react-hot-toast";
+import SearchPage from "./features/Search/SearchPage";
+import CartOverview from "./features/cart/CartOverview";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/" element={<Home />}>
+          <Route index element={<Products from="home" />} />
+
+          <Route path="cart" element={<CartOverview />} />
+          <Route path="search/:query" element={<SearchPage />} />
+          <Route path="product/:id" element={<ProductDetail />} />
+        </Route>
       </Routes>
       <Toaster
         position="top-center"

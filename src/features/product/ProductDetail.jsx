@@ -52,6 +52,8 @@ function ProductDetail() {
       quantity: 1,
       unitPrice,
       totalPrice: unitPrice * 1,
+      img: product.thumbnail,
+      desc: product.description,
     };
     if (isInCart) {
       toast.error("Already in cart");
@@ -61,82 +63,87 @@ function ProductDetail() {
     }
   }
   return (
-    <div className={styles.btnpos}>
-      <Header />
-      <Link className={styles.btn} to="/">
-        <Button>
-          <Unicons.UilArrowLeft />
-          Back
-        </Button>
-      </Link>
-      <main className={styles.container}>
-        {/* Left Column / Headphones Image */}
-        <div className={styles["left-column"]}>
-          {product.images.map((image, i) => (
-            <img
-              key={i}
-              className={i === selectedImageIndex ? styles.active : ""}
-              data-image="black"
-              src={image}
-              alt=""
-            />
-          ))}
-        </div>
-
-        {/* Right Column */}
-        <div className={styles["right-column"]}>
-          {/* Product Description */}
-          <div className={styles["product-description"]}>
-            <span>{product.category}</span>
-            <h1>{product.title}</h1>
-            <p>{product.description}</p>
+    <>
+      <div className={styles.btnpos}>
+        <Header />
+        <Link className={styles.backBtn} to="/">
+          <Button>
+            <Unicons.UilArrowLeft />
+            Back
+          </Button>
+        </Link>
+        <main className={styles.container}>
+          {/* Left Column / Headphones Image */}
+          <div className={styles["left-column"]}>
+            {product.images.map((image, i) => (
+              <img
+                key={i}
+                className={i === selectedImageIndex ? styles.active : ""}
+                data-image="black"
+                src={image}
+                alt=""
+              />
+            ))}
           </div>
 
-          {/* Product Configuration */}
-          <div className={styles["product-configuration"]}>
-            {/* Product Color */}
-            <div className={styles["product-rbc"]}>
-              <p>Rating: </p> <span>{product.rating}</span>
-              <div className={styles.verticalLine}></div>
-              <p>Brand: </p> <span>{product.brand}</span>
-              <div className={styles.verticalLine}></div>
-              <p>Category: </p> <span>{product.category}</span>
+          {/* Right Column */}
+          <div className={styles["right-column"]}>
+            {/* Product Description */}
+            <div className={styles["product-description"]}>
+              <span>{product.category}</span>
+              <h1>{product.title}</h1>
+              <p>{product.description}</p>
             </div>
 
-            {/* Cable Configuration */}
-            <div className={styles["smallImage"]}>
-              {product.images.map((image, i) => (
-                <img
-                  key={i}
-                  data-image="black"
-                  src={image}
-                  alt=""
-                  onClick={() => handleImageClick(i)}
-                  className={i === selectedImageIndex ? styles.sactive : ""}
-                />
-              ))}
+            {/* Product Configuration */}
+            <div className={styles["product-configuration"]}>
+              {/* Product Color */}
+              <div className={styles["product-rbc"]}>
+                <p>Rating: </p> <span>{product.rating}</span>
+                <div className={styles.verticalLine}></div>
+                <p>Brand: </p> <span>{product.brand}</span>
+                <div className={styles.verticalLine}></div>
+                <p>Category: </p> <span>{product.category}</span>
+              </div>
+
+              {/* Cable Configuration */}
+              <div className={styles["smallImage"]}>
+                {product.images.map((image, i) => (
+                  <img
+                    key={i}
+                    data-image="black"
+                    src={image}
+                    alt=""
+                    onClick={() => handleImageClick(i)}
+                    className={i === selectedImageIndex ? styles.sactive : ""}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Product Pricing */}
+            <div className={styles["product-price"]}>
+              <span>
+                <span className={styles["price"]}>Price:</span>
+                {formatPrice(unitPrice)}
+              </span>
+              {!isInCart ? (
+                <button onClick={handleAddCart} className={styles["cart-btn"]}>
+                  Add to cart
+                </button>
+              ) : (
+                <button
+                  onClick={handleGoToCart}
+                  className={styles["cart-btn-goto"]}
+                >
+                  Go to cart
+                </button>
+              )}
             </div>
           </div>
-
-          {/* Product Pricing */}
-          <div className={styles["product-price"]}>
-            <span>{formatPrice(unitPrice)}</span>
-            {!isInCart ? (
-              <button onClick={handleAddCart} className={styles["cart-btn"]}>
-                Add to cart
-              </button>
-            ) : (
-              <button
-                onClick={handleGoToCart}
-                className={styles["cart-btn-goto"]}
-              >
-                Go to cart
-              </button>
-            )}
-          </div>
-        </div>
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   );
 }
 

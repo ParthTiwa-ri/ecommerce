@@ -1,35 +1,38 @@
-import { useEffect, useState } from "react";
-import styles from "./Products.module.css";
-import { fetchProducts } from "../../services/apiProduct";
-import ProductItem from "./ProductItem";
-import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../ui/Loader/Loader";
-import { updateProductList } from "./productSlice";
+import { useEffect } from "react";
+import styles from "../product/Products.module.css";
+import { fetchProductsSearch } from "../../services/apiProduct";
+import ProductItem from "../product/ProductItem";
+
+// import Loader from "../../ui/Loader/Loader";
+import { updateProductList } from "../product/productSlice";
 import ItemNotFound from "../../ui/ItemNotFound/ItemNotFound";
 import { discountedPrice } from "../../util/helper";
 import ProductHeader from "../../ui/ProductHeader/ProductHeader";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
-function Products() {
+function SearchPage() {
   const products = useSelector((state) => state.product.productList);
-  const [isLoading, setLoading] = useState(true);
+  //   const [isLoading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const asc = useSelector((state) => state.filter.asc);
   const des = useSelector((state) => state.filter.des);
   const above = useSelector((state) => state.filter.above);
   const one = useSelector((state) => state.filter.one);
   const five = useSelector((state) => state.filter.five);
-
-  useEffect(() => {
-    async function fetch() {
-      const data = await fetchProducts();
-      dispatch(updateProductList(data.products));
-      setLoading(false);
-      // fetchProducts().then((data) =>
-      //   dispatch(updateProductList(data.products))
-      // );
-    }
-    fetch();
-  }, [dispatch]);
+  const { query: searchValue } = useParams();
+  console.log(searchValue);
+  useEffect(
+    function () {
+      {
+        fetchProductsSearch(searchValue).then((data) =>
+          dispatch(updateProductList(data.products))
+        );
+        // setLoading(false);
+      }
+    },
+    [searchValue, dispatch]
+  );
 
   let productList;
 
@@ -62,7 +65,7 @@ function Products() {
       break;
   }
 
-  if (isLoading) return <Loader />;
+  //   if (isLoading) return <Loader />;
 
   if (productList.length === 0) {
     return <ItemNotFound />;
@@ -80,4 +83,4 @@ function Products() {
   );
 }
 
-export default Products;
+export default SearchPage;

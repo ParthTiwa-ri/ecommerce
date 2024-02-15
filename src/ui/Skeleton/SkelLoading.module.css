@@ -48,40 +48,8 @@
 
 .addtocart:hover {
   background-color: var(--darker-green);
-  color: white;
-  cursor: pointer;
-}
-
-.goToCart,
-.goToCart:visited,
-.goToCart:link {
-  position: absolute;
-  bottom: 0;
-  background-color: white;
-  width: 100%;
-  height: 4.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0 0 6px 6px;
-  box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
-
-  color: white;
-  color: inherit;
-  text-decoration: none;
-}
-
-.goToCart:hover {
-  background-color: white;
-  box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.5);
-
-  /* color: black; */
-  cursor: pointer;
-}
-.goToCart > p {
-  font-weight: 800;
-  font-size: 1.2rem;
   color: black;
+  cursor: pointer;
 }
 .addtocart > p {
   font-weight: 800;
@@ -152,8 +120,4 @@
   font-weight: 600;
   /* font-family: $font-family-poppins; */
   color: gray;
-}
-.links {
-  text-decoration: none;
-  color: inherit;
 }
