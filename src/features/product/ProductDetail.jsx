@@ -59,7 +59,7 @@ function ProductDetail() {
       toast.error("Already in cart");
     } else {
       dispatch(addItem(newItem));
-      toast.success("Added to cart successfully");
+      toast.success(`${product.title} Added to cart successfully`);
     }
   }
   return (

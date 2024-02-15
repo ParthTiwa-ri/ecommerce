@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 
 function Header() {
   const cart = useSelector((state) => state.cart.cart);
-  const cartLength = cart.length;
 
+  const cartLength = useSelector((state) =>
+    state.cart.cart.reduce((sum, item) => sum + item.quantity, 0)
+  );
   return (
     <div className={style.header}>
       <div className={style.icon}>
@@ -20,7 +22,7 @@ function Header() {
       </div>
 
       {/* <Filter /> */}
-      <div className={style.cartContainer}>
+      <Link to="/cart" className={style.cartContainer}>
         {cart.length === 0 ? (
           <ion-icon name="cart-outline"></ion-icon>
         ) : (
@@ -30,7 +32,7 @@ function Header() {
           <div className={style.cartNumber}>{cartLength}</div>
         ) : null}
         <p>Cart</p>
-      </div>
+      </Link>
     </div>
   );
 }
