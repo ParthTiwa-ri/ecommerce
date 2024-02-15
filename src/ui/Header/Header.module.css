@@ -62,7 +62,7 @@
 
 @media (max-width: 535px) {
   .header {
-    padding: 0.5rem;
+    padding: 1rem;
     justify-content: space-between;
   }
   .img {
