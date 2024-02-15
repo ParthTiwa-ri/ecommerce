@@ -5,7 +5,7 @@ import styles from "./Search.module.css";
 import { useDispatch } from "react-redux";
 import { updateProductList } from "../product/productSlice";
 import { fetchProductsSearch } from "../../services/apiProduct";
-import Filter from "../Filter/Filter";
+// import Filter from "../Filter/Filter";
 
 function Search() {
   const [searchValue, setSearchValue] = useState("");
@@ -14,7 +14,7 @@ function Search() {
 
   useEffect(
     function () {
-    {
+      {
         fetchProductsSearch(searchValue).then((data) =>
           dispatch(updateProductList(data.products))
         );
@@ -33,7 +33,7 @@ function Search() {
           onChange={(e) => setSearchValue(e.target.value)}
         />
       </form>
-      <Filter />
+      {/* <Filter /> */}
     </div>
   );
 }
