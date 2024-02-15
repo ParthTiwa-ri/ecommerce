@@ -9,6 +9,16 @@
   /* background-color: black; */
 }
 
+.bckcolor {
+  background-color: #181f3a;
+  position: absolute;
+  height: 360rem;
+  top: 0;
+  height: 30rem;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
 .container {
   /* max-height: 40rem; */
   /* width: 120rem; */
@@ -267,7 +277,7 @@
 @media only screen and (max-width: 480px) {
   .container {
     width: 100%;
-    margin-top: 20%;
+    /* margin-top: 5; */
   }
   .chkoutBtnbtm {
     display: none;

@@ -9,6 +9,7 @@ import {
 import { useEffect } from "react";
 import { formatPrice } from "../../util/helper";
 import toast from "react-hot-toast";
+import backgroundImg from "../../images/bck.png";
 // import { useState } from "react";
 
 function CartOverview() {
@@ -23,7 +24,11 @@ function CartOverview() {
 
   return (
     <>
-      <div className={styles.wrapper}>
+      <div
+        style={{ backgroundImage: backgroundImg }}
+        className={styles.wrapper}
+      >
+        <div className={styles.bckcolor}></div>
         <div className={styles.container}>
           <div className={styles.cartCard}>
             {cart.map((item) => (
@@ -64,11 +69,9 @@ function CartCard({ item }) {
 
   function handleInc() {
     dispatch(increaseItemQuantity(item.itemId));
-    toast.success(`${item.name} quantity increased`);
   }
   function handleDec() {
     dispatch(decreaseItemQuantity(item.itemId));
-    toast.success(`${item.name} quantity decreased`);
   }
   return (
     <div className={styles.card}>
