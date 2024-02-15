@@ -1,5 +1,5 @@
 .header {
-  background-color: white;
+  background-color: #1f2c3a;
   display: flex;
   justify-content: space-between;
   height: 6rem;
@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: white;
 }
 .cartNumber {
   position: absolute;
@@ -52,9 +53,9 @@
 @media (max-width: 940px) {
 }
 
-@media (max-width: 768px) {
+@media (max-width: 940px) {
   .header {
-    padding: 0 0rem;
+    padding: 0 2rem;
     justify-content: space-between;
   }
   .icon {

@@ -64,10 +64,13 @@ input {
   }
 }
 
-@media (max-width: 940px) {
+@media (max-width: 800px) {
+  .search {
+    width: 30rem;
+  }
 }
 
-@media (max-width: 535px) {
+@media (max-width: 580px) {
   .search {
     width: 19rem;
   }

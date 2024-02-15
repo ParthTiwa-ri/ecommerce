@@ -2,6 +2,7 @@ import style from "./Header.module.css";
 import headIcon from "../../images/headIcon.png";
 import { useSelector } from "react-redux";
 import Search from "../../features/Search/Search";
+import { Link } from "react-router-dom";
 // import Filter from "../../features/Filter/Filter";
 
 function Header() {
@@ -11,7 +12,9 @@ function Header() {
   return (
     <div className={style.header}>
       <div className={style.icon}>
-        <img className={style.img} src={headIcon} alt="" />
+        <Link to="/">
+          <img className={style.img} src={headIcon} alt="" />
+        </Link>
         {/* <h3>ShopWorld</h3> */}
         <Search />
       </div>
