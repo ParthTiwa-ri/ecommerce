@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+// import { useState } from "react";
 import PropTypes from "prop-types";
 
 const containerStyle = {
@@ -28,36 +28,21 @@ export default function StarRating({
   className = "",
 
   defaultRating = 0,
-  onSetRating,
 }) {
-  const [rating, setRating] = useState(defaultRating);
-  const [tempRating, setTempRating] = useState(0);
-
-  function handleRating(rating) {
-    setRating(rating);
-    onSetRating(rating);
-  }
-
+  // const [rating, setRating] = useState(defaultRating);
+  const rating = defaultRating;
   return (
     <div style={containerStyle} className={className}>
       <div style={starContainerStyle}>
         {Array.from({ length: maxRating }, (_, i) => (
-          <Star
-            key={i}
-            full={tempRating ? tempRating >= i + 1 : rating >= i + 1}
-            onRate={() => handleRating(i + 1)}
-            onHoverIn={() => setTempRating(i + 1)}
-            onHoverOut={() => setTempRating(0)}
-            color={color}
-            size={size}
-          />
+          <Star key={i} full={rating >= i + 1} color={color} size={size} />
         ))}
       </div>
     </div>
   );
 }
 
-function Star({ onRate, full, onHoverIn, onHoverOut, color, size }) {
+function Star({ full, color, size }) {
   const starStyle = {
     width: `${size}px`,
     height: `${size}px`,
@@ -66,13 +51,7 @@ function Star({ onRate, full, onHoverIn, onHoverOut, color, size }) {
   };
 
   return (
-    <span
-      role="button"
-      style={starStyle}
-      onClick={onRate}
-      onMouseEnter={onHoverIn}
-      onMouseLeave={onHoverOut}
-    >
+    <span role="button" style={starStyle}>
       {full ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"

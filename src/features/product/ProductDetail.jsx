@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styles from "./ProductDetail.module.css";
 import { useEffect, useState } from "react";
 import { fetchProductID } from "../../services/apiProduct";
@@ -16,12 +16,15 @@ function ProductDetail() {
   const [product, setProduct] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
+
   const dispatch = useDispatch();
 
   const { id } = useParams();
 
   const cart = useSelector((state) => state.cart.cart);
 
+  const isInCart = cart.find((item) => item.itemId === product.id);
+  const navigate = useNavigate();
   const unitPrice = discountedPrice(product.price, product.discountPercentage);
   useEffect(() => {
     async function fetchData() {
@@ -38,6 +41,10 @@ function ProductDetail() {
     setSelectedImageIndex(index);
   };
 
+  const handleGoToCart = () => {
+    navigate("/cart");
+  };
+
   function handleAddCart() {
     const newItem = {
       itemId: product.id,
@@ -46,7 +53,7 @@ function ProductDetail() {
       unitPrice,
       totalPrice: unitPrice * 1,
     };
-    if (cart.find((item) => item.itemId === product.id)) {
+    if (isInCart) {
       toast.error("Already in cart");
     } else {
       dispatch(addItem(newItem));
@@ -114,9 +121,18 @@ function ProductDetail() {
           {/* Product Pricing */}
           <div className={styles["product-price"]}>
             <span>{formatPrice(unitPrice)}</span>
-            <button onClick={handleAddCart} className={styles["cart-btn"]}>
-              Add to cart
-            </button>
+            {!isInCart ? (
+              <button onClick={handleAddCart} className={styles["cart-btn"]}>
+                Add to cart
+              </button>
+            ) : (
+              <button
+                onClick={handleGoToCart}
+                className={styles["cart-btn-goto"]}
+              >
+                Go to cart
+              </button>
+            )}
           </div>
         </div>
       </main>

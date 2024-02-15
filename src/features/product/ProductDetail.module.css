@@ -139,6 +139,25 @@
   background-color: #64af3d;
 }
 
+.cart-btn-goto {
+  display: inline-block;
+  background-color: white;
+  border-radius: 6px;
+  font-size: 16px;
+  color: black;
+  text-decoration: none;
+  padding: 12px 30px;
+  transition: all 0.5s;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
+}
+
+.cart-btn-goto:hover {
+  background-color: var(--color-grey-100);
+}
+
 .verticalLine {
   width: 0.3rem;
   background-color: var(--green);
@@ -210,7 +229,7 @@
     position: fixed;
     bottom: 0;
     background-color: #7dc855;
-    border-radius: 6px 6px 0 0;
+    border-radius: 0;
     width: 100%;
     font-size: 16px;
     color: #ffffff;
@@ -225,5 +244,26 @@
 
   .cart-btn:hover {
     background-color: #64af3d;
+  }
+  .cart-btn-goto {
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    border-radius: 0;
+    width: 100%;
+    font-size: 16px;
+    color: black;
+    box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.5);
+    text-decoration: none;
+    left: 0;
+    padding: 1.5rem 3rem;
+    transition: all 0.5s;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+
+  .cart-btn-goto:hover {
+    background-color: var(--color-grey-100);
   }
 }
