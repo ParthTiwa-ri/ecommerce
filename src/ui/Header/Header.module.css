@@ -46,7 +46,7 @@
 }
 @media (max-width: 768px) {
   .header {
-    padding: 0%;
+    padding: 0 2rem;
     justify-content: space-between;
   }
   .icon {
@@ -55,14 +55,24 @@
     align-items: center;
     /* justify-content: center; */
   }
+  .img {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 535px) {
   .header {
-    padding: 0rem;
+    padding: 0.5rem;
     justify-content: space-between;
   }
   .img {
+    height: 3rem;
     margin-left: 0;
+  }
+  .icon {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    /* justify-content: center; */
   }
 }
