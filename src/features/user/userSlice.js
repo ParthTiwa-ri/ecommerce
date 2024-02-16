@@ -39,6 +39,10 @@ const userSlice = createSlice({
       }
     },
     logout() {
+      // state.name = "";
+      // state.token = "";
+      // state.image = "";
+      // state.isAuth = false;
       localStorage.removeItem("userState");
       return initialState;
     },

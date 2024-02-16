@@ -5,6 +5,7 @@ import { login } from "../../services/apiLogin";
 import { useDispatch, useSelector } from "react-redux";
 import { successLogin } from "../../features/user/userSlice";
 import toast from "react-hot-toast";
+import { clearCart } from "../../features/cart/cartSlice";
 
 function Login() {
   // State variables
@@ -29,7 +30,7 @@ function Login() {
         const data = await login(username, password);
         if (data && data.token) {
           dispatch(successLogin(data));
-
+          dispatch(clearCart());
           toast.success("Login successful.");
           navigate("/");
         } else {

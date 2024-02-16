@@ -92,10 +92,4 @@
     width: 80%;
     padding: 30px 20px;
   }
-
-  .login::before,
-  .login::after {
-    width: 300px;
-    height: 300px;
-  }
 }

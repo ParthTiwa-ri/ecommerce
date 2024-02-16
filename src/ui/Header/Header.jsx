@@ -10,6 +10,8 @@ function Header() {
   const cart = useSelector((state) => state.cart.cart);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const name = useSelector((state) => state.user.name);
+  const image = useSelector((state) => state.user.image);
 
   const cartLength = useSelector((state) =>
     state.cart.cart.reduce((sum, item) => sum + item.quantity, 0)
@@ -44,6 +46,15 @@ function Header() {
 
         {/* <Filter /> */}
         <div className={`${style.cartContainer} ${style.cartflex}`}>
+          <div className={style.usericon}>
+            <div className={style.userimg}>
+              <img src={image} alt="userimage" />
+            </div>
+            <div className={style.flex}>
+              <p>Welcome </p>
+              <span>{name}</span>
+            </div>
+          </div>
           <div onClick={handlLogOut} className={style.logoutIcon}>
             <ion-icon name="log-out-outline"></ion-icon>
             <p>Logout</p>
