@@ -6,10 +6,10 @@ import Header from "../ui/Header/Header";
 
 function Home() {
   return (
-    <>
+    <body>
       <Header />
       <Outlet />
-    </>
+    </body>
   );
 }
 

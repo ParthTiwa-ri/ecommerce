@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Cart from "./pages/Cart";
+// import Cart from "./pages/Cart";
 import ProductDetail from "./features/product/ProductDetail";
 import Products from "./features/product/Products";
 import { Toaster } from "react-hot-toast";
@@ -25,10 +25,10 @@ function App() {
         containerStyle={{ margin: "8px" }}
         toastOptions={{
           success: {
-            duration: 3000,
+            duration: 2000,
           },
           error: {
-            duration: 5000,
+            duration: 4000,
           },
           style: {
             fontSize: "16px",

@@ -7,7 +7,7 @@ import Button from "../../ui/Button/Button";
 import * as Unicons from "@iconscout/react-unicons";
 import "./style.css";
 import { discountedPrice, formatPrice } from "../../util/helper";
-import Header from "../../ui/Header/Header";
+
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../cart/cartSlice";
 import toast from "react-hot-toast";
@@ -65,7 +65,6 @@ function ProductDetail() {
   return (
     <>
       <div className={styles.btnpos}>
-        <Header />
         <Link className={styles.backBtn} to="/">
           <Button>
             <Unicons.UilArrowLeft />

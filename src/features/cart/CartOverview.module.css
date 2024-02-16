@@ -7,8 +7,16 @@
   background-size: contain;
   background-repeat: no-repeat;
   /* background-color: black; */
+  /* position: relative; */
 }
 
+.orderplaced {
+  position: fixed;
+  z-index: 100;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
 .bckcolor {
   background-color: #181f3a;
   position: absolute;
@@ -304,7 +312,7 @@
   }
 
   .wrapper {
-    margin-top: 5rem;
+    margin-top: 0rem;
   }
   .checkOutCard {
     width: 95%;

@@ -285,4 +285,7 @@
     margin-right: 10px;
     display: inline;
   }
+  .container {
+    margin: 0;
+  }
 }

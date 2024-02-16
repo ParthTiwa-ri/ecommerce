@@ -1,22 +1,36 @@
 /* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from "react-redux";
+import OrderBtn from "../../ui/OrderBtn/OrderBtn";
 import styles from "./CartOverview.module.css";
 import {
+  clearCart,
   decreaseItemQuantity,
   deleteItem,
   increaseItemQuantity,
 } from "./cartSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { formatPrice } from "../../util/helper";
 import toast from "react-hot-toast";
 import backgroundImg from "../../images/bck.png";
+import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
 
 function CartOverview() {
   const cart = useSelector((state) => state.cart.cart);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const total = useSelector((state) =>
     state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0)
   );
+  const [ordplaced, setordplaced] = useState(false);
+  function handlechk() {
+    setordplaced(true);
+    setTimeout(() => {
+      setordplaced(false);
+      dispatch(clearCart());
+      navigate("/");
+    }, 10000);
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -24,6 +38,7 @@ function CartOverview() {
 
   return (
     <>
+      <div className={styles.orderplaced}>{ordplaced && <OrderBtn />}</div>
       <div
         style={{ backgroundImage: `url(${backgroundImg})` }}
         className={styles.wrapper}
@@ -47,12 +62,24 @@ function CartOverview() {
                 <p>TOTAL</p>
                 <span className={styles.bold}>{formatPrice(total)}</span>
               </div>
-              <button className={styles.chkoutBtn}>Proceed to checkout</button>
+              <button
+                onClick={handlechk}
+                disabled={ordplaced}
+                className={styles.chkoutBtn}
+              >
+                Proceed to checkout
+              </button>
             </div>
           </div>
         </div>
       </div>
-      <button className={styles.chkoutBtnbtm}>Proceed to checkout</button>
+      <button
+        onClick={handlechk}
+        disabled={ordplaced}
+        className={styles.chkoutBtnbtm}
+      >
+        Proceed to checkout
+      </button>
     </>
   );
 }
