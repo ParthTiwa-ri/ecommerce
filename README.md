@@ -36,7 +36,7 @@ This React application provides a seamless shopping experience, allowing users t
 
 ## 🚀 Usage
 
-- Visit the [shopping app portal](https://your-shopping-app-portal.com/) in your browser to explore the features.
+- Visit the [shopping app portal](https://e-commerce-chi-blond.vercel.app) in your browser to explore the features.
 
 ## 🛠️ Installation
 
@@ -45,7 +45,7 @@ To run the application locally:
 1. **Clone this repository:**
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone [https://github.com/your-username/your-repository.git](https://github.com/ParthTiwa-ri/ecommerce.git)
    ```
 
 2. **Navigate to the project directory:**
@@ -63,7 +63,7 @@ To run the application locally:
 4. **Start the development server:**
 
    ```bash
-   npm start
+   npm run dev
    ```
 
 5. **Open your browser and visit the development server link to view the application.**
