@@ -3,7 +3,7 @@
   margin: 4rem 0rem 4.5rem;
   display: flex;
   justify-content: space-between;
-  width: 65rem;
+  width: 55rem;
   /* border-radius: 999px; */
   transition: all 1s ease;
 }
@@ -37,6 +37,12 @@ input {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
+@media only screen and (max-width: 1250px) {
+  .search {
+    width: auto;
+  }
+}
+
 /* Responsive styles */
 @media only screen and (max-width: 768px) {
   .search {
@@ -60,7 +66,7 @@ input {
 
 @media (max-width: 1130px) {
   .search {
-    width: 50rem;
+    width: auto;
   }
 }
 
