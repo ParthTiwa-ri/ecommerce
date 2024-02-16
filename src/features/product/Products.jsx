@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./Products.module.css";
 import { fetchProducts } from "../../services/apiProduct";
 import ProductItem from "./ProductItem";
@@ -9,10 +9,11 @@ import ItemNotFound from "../../ui/ItemNotFound/ItemNotFound";
 import { discountedPrice } from "../../util/helper";
 import ProductHeader from "../../ui/ProductHeader/ProductHeader";
 import Filter from "../Filter/Filter";
+import { useQuery } from "@tanstack/react-query";
 
 function Products() {
   const products = useSelector((state) => state.product.productList);
-  const [isLoading, setLoading] = useState(true);
+  // const [isLoading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const asc = useSelector((state) => state.filter.asc);
   const desc = useSelector((state) => state.filter.desc);
@@ -20,18 +21,30 @@ function Products() {
   const one = useSelector((state) => state.filter.one);
   const five = useSelector((state) => state.filter.five);
 
-  useEffect(() => {
-    async function fetch() {
-      const data = await fetchProducts();
-      dispatch(updateProductList(data.products));
-      setLoading(false);
-      // fetchProducts().then((data) =>
-      //   dispatch(updateProductList(data.products))
-      // );
-    }
-    fetch();
-  }, [dispatch]);
+  // useEffect(() => {
+  //   async function fetch() {
+  //     const data = await fetchProducts();
+  //     dispatch(updateProductList(data.products));
+  //     setLoading(false);
+  //     // fetchProducts().then((data) =>
+  //     //   dispatch(updateProductList(data.products))
+  //     // );
+  //   }
+  //   fetch();
+  // }, [dispatch]);
 
+  const { data, isLoading } = useQuery({
+    queryKey: ["products"],
+    queryFn: fetchProducts,
+  });
+
+  useEffect(() => {
+    if (data) {
+      dispatch(updateProductList(data.products));
+    }
+  }, [data, dispatch]);
+
+  console.log(data, isLoading);
   let productList;
 
   switch (true) {

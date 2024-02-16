@@ -38,13 +38,13 @@ const userSlice = createSlice({
         console.error("Error saving user state to local storage:", error);
       }
     },
-    logout() {
-      // state.name = "";
-      // state.token = "";
-      // state.image = "";
-      // state.isAuth = false;
+    logout(state) {
+      state.name = "";
+      state.token = "";
+      state.image = "";
+      state.isAuth = false;
       localStorage.removeItem("userState");
-      return initialState;
+      // return initialState;
     },
   },
 });

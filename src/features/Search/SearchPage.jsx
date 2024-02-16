@@ -11,6 +11,8 @@ import ProductHeader from "../../ui/ProductHeader/ProductHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Filter from "../Filter/Filter";
+import { useQuery } from "@tanstack/react-query";
+import Loader from "../../ui/Loader/Loader";
 
 function SearchPage() {
   const products = useSelector((state) => state.product.productList);
@@ -23,17 +25,28 @@ function SearchPage() {
   const five = useSelector((state) => state.filter.five);
   const { query: searchValue } = useParams();
   console.log(searchValue);
-  useEffect(
-    function () {
-      {
-        fetchProductsSearch(searchValue).then((data) =>
-          dispatch(updateProductList(data.products))
-        );
-        // setLoading(false);
-      }
-    },
-    [searchValue, dispatch]
-  );
+  // useEffect(
+  //   function () {
+  //     {
+  //       fetchProductsSearch(searchValue).then((data) =>
+  //         dispatch(updateProductList(data.products))
+  //       );
+  //       // setLoading(false);
+  //     }
+  //   },
+  //   [searchValue, dispatch]
+  // );
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["products", searchValue],
+    queryFn: () => fetchProductsSearch(searchValue),
+  });
+
+  useEffect(() => {
+    if (data) {
+      dispatch(updateProductList(data.products));
+    }
+  }, [data, dispatch]);
 
   let productList;
 
@@ -66,7 +79,7 @@ function SearchPage() {
       break;
   }
 
-  //   if (isLoading) return <Loader />;
+  if (isLoading) return <Loader />;
 
   if (productList.length === 0) {
     return <ItemNotFound />;

@@ -11,29 +11,31 @@ import { discountedPrice, formatPrice } from "../../util/helper";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../cart/cartSlice";
 import toast from "react-hot-toast";
+import { useQuery } from "@tanstack/react-query";
 
 function ProductDetail() {
-  const [product, setProduct] = useState([]);
-  const [isLoading, setLoading] = useState(true);
+  const [product, setProduct] = useState({}); // Initialize product state as an empty object
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
-
   const dispatch = useDispatch();
-
   const { id } = useParams();
-
   const cart = useSelector((state) => state.cart.cart);
-
   const isInCart = cart.find((item) => item.itemId === product.id);
   const navigate = useNavigate();
-  const unitPrice = discountedPrice(product.price, product.discountPercentage);
+
+  const unitPrice = product
+    ? discountedPrice(product.price, product.discountPercentage)
+    : 0;
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["product", id],
+    queryFn: () => fetchProductID(id),
+  });
+
   useEffect(() => {
-    async function fetchData() {
-      const data = await fetchProductID(id);
+    if (data) {
       setProduct(data);
-      setLoading(false);
     }
-    fetchData();
-  }, [id]);
+  }, [data]);
 
   if (isLoading) return <Loader />;
 
@@ -62,6 +64,7 @@ function ProductDetail() {
       toast.success(`${product.title} Added to cart successfully`);
     }
   }
+
   return (
     <>
       <div className={styles.btnpos}>
@@ -72,73 +75,79 @@ function ProductDetail() {
           </Button>
         </Link>
         <main className={styles.container}>
-          {/* Left Column / Headphones Image */}
           <div className={styles["left-column"]}>
-            {product.images.map((image, i) => (
-              <img
-                key={i}
-                className={i === selectedImageIndex ? styles.active : ""}
-                data-image="black"
-                src={image}
-                alt=""
-              />
-            ))}
+            {product.images &&
+              product.images.map((image, i) => (
+                <img
+                  key={i}
+                  className={i === selectedImageIndex ? styles.active : ""}
+                  data-image="black"
+                  src={image}
+                  alt=""
+                />
+              ))}
           </div>
 
-          {/* Right Column */}
           <div className={styles["right-column"]}>
-            {/* Product Description */}
-            <div className={styles["product-description"]}>
-              <span>{product.category}</span>
-              <h1>{product.title}</h1>
-              <p>{product.description}</p>
-            </div>
+            {product && (
+              <>
+                <div className={styles["product-description"]}>
+                  <span>{product.category}</span>
+                  <h1>{product.title}</h1>
+                  <p>{product.description}</p>
+                </div>
 
-            {/* Product Configuration */}
-            <div className={styles["product-configuration"]}>
-              {/* Product Color */}
-              <div className={styles["product-rbc"]}>
-                <p>Rating: </p> <span>{product.rating}</span>
-                <div className={styles.verticalLine}></div>
-                <p>Brand: </p> <span>{product.brand}</span>
-                <div className={styles.verticalLine}></div>
-                <p>Category: </p> <span>{product.category}</span>
-              </div>
+                <div className={styles["product-configuration"]}>
+                  {/* Product Color */}
+                  <div className={styles["product-rbc"]}>
+                    <p>Rating: </p> <span>{product.rating}</span>
+                    <div className={styles.verticalLine}></div>
+                    <p>Brand: </p> <span>{product.brand}</span>
+                    <div className={styles.verticalLine}></div>
+                    <p>Category: </p> <span>{product.category}</span>
+                  </div>
 
-              {/* Cable Configuration */}
-              <div className={styles["smallImage"]}>
-                {product.images.map((image, i) => (
-                  <img
-                    key={i}
-                    data-image="black"
-                    src={image}
-                    alt=""
-                    onClick={() => handleImageClick(i)}
-                    className={i === selectedImageIndex ? styles.sactive : ""}
-                  />
-                ))}
-              </div>
-            </div>
+                  {/* Cable Configuration */}
+                  <div className={styles["smallImage"]}>
+                    {product.images &&
+                      product.images.map((image, i) => (
+                        <img
+                          key={i}
+                          data-image="black"
+                          src={image}
+                          alt=""
+                          onClick={() => handleImageClick(i)}
+                          className={
+                            i === selectedImageIndex ? styles.sactive : ""
+                          }
+                        />
+                      ))}
+                  </div>
+                </div>
 
-            {/* Product Pricing */}
-            <div className={styles["product-price"]}>
-              <span>
-                <span className={styles["price"]}>Price:</span>
-                {formatPrice(unitPrice)}
-              </span>
-              {!isInCart ? (
-                <button onClick={handleAddCart} className={styles["cart-btn"]}>
-                  Add to cart
-                </button>
-              ) : (
-                <button
-                  onClick={handleGoToCart}
-                  className={styles["cart-btn-goto"]}
-                >
-                  Go to cart
-                </button>
-              )}
-            </div>
+                <div className={styles["product-price"]}>
+                  <span>
+                    <span className={styles["price"]}>Price:</span>
+                    {formatPrice(unitPrice)}
+                  </span>
+                  {!isInCart ? (
+                    <button
+                      onClick={handleAddCart}
+                      className={styles["cart-btn"]}
+                    >
+                      Add to cart
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleGoToCart}
+                      className={styles["cart-btn-goto"]}
+                    >
+                      Go to cart
+                    </button>
+                  )}
+                </div>
+              </>
+            )}
           </div>
         </main>
       </div>

@@ -12,6 +12,8 @@
   "dependencies": {
     "@iconscout/react-unicons": "^2.0.2",
     "@reduxjs/toolkit": "^2.2.0",
+    "@tanstack/react-query": "^5.20.5",
+    "@tanstack/react-query-devtools": "^5.20.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
