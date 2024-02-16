@@ -1,4 +1,4 @@
-# Shopping Experience App
+<img width="1440" alt="Screenshot 2024-02-17 at 1 19 04 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/7ed64b64-d4ff-46a1-b73c-ca1137b05c66"># Shopping Experience App
 
 This React application provides a seamless shopping experience, allowing users to browse products, search, filter, and add items to their cart.
 
@@ -37,6 +37,11 @@ This React application provides a seamless shopping experience, allowing users t
 ## 🚀 Usage
 
 - Visit the [shopping app portal](https://e-commerce-chi-blond.vercel.app) in your browser to explore the features.
+-  **Homepage:** When you open the application, you will be directed to the homepage. Only logged-in users can access this page.
+- **Login:** Existing users can log in by providing their credentials on the login page.
+- **Product Viewing:** Once logged in, you can view the available products on the homepage. Use the search bar to find specific products or use the filter option to refine your search by price.
+- **Shopping Cart:** Add products to your cart by clicking the "Add to Cart" button on product cards. You can view your cart's total count and amount at the top of the page.
+- **Navigation:** Navigate between pages using the links provided in the application or the browser's back and forward buttons.
 
 ## 🛠️ Installation
 
@@ -67,5 +72,14 @@ To run the application locally:
    ```
 
 5. **Open your browser and visit the development server link to view the application.**
-
+ 
 ---
+
+## 🖼️ Screenshots
+
+
+<img width="1440" alt="Screenshot 2024-02-17 at 1 50 03 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/2b49541b-9ef5-444d-b377-5e00bbb1187e">
+<img width="1440" alt="Screenshot 2024-02-17 at 1 48 44 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/b0e63612-e3d5-4d0a-ae42-b752ef574f5c">
+<img width="1440" alt="Screenshot 2024-02-17 at 1 48 24 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/f57937cc-ae9c-43d6-801a-11ad0c4895cc">
+<img width="1440" alt="Screenshot 2024-02-17 at 1 48 17 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/73575773-e1a4-49bc-9c7a-c9c85886c9a8">
+
