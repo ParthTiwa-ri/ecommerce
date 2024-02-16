@@ -15,7 +15,7 @@ function Products() {
   const [isLoading, setLoading] = useState(true);
   const dispatch = useDispatch();
   const asc = useSelector((state) => state.filter.asc);
-  const des = useSelector((state) => state.filter.des);
+  const desc = useSelector((state) => state.filter.desc);
   const above = useSelector((state) => state.filter.above);
   const one = useSelector((state) => state.filter.one);
   const five = useSelector((state) => state.filter.five);
@@ -38,7 +38,7 @@ function Products() {
     case asc:
       productList = products.slice().sort((a, b) => a.price - b.price);
       break;
-    case des:
+    case desc:
       productList = products.slice().sort((a, b) => b.price - a.price);
       break;
     case five:

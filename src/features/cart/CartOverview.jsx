@@ -29,7 +29,7 @@ function CartOverview() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []); // Empty dependency array ensures this effect runs only once after initial render
+  }, []);
 
   useEffect(() => {
     let timeoutId;
@@ -138,7 +138,10 @@ function CartCard({ item }) {
     dispatch(increaseItemQuantity(item.itemId));
   }
   function handleDec() {
-    dispatch(decreaseItemQuantity(item.itemId));
+    if (item.quantity > 1) dispatch(decreaseItemQuantity(item.itemId));
+    else {
+      toast.error("Item quantity cannot be less than 1");
+    }
   }
   return (
     <div className={styles.card}>

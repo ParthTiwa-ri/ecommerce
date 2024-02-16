@@ -6,18 +6,30 @@ import Products from "./features/product/Products";
 import { Toaster } from "react-hot-toast";
 import SearchPage from "./features/Search/SearchPage";
 import CartOverview from "./features/cart/CartOverview";
+import Login from "./pages/Login/Login";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
+import PageNotFound from "./pages/PageNotFound";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />}>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/"
+          element={
+            <ProtectedRoutes>
+              <Home />
+            </ProtectedRoutes>
+          }
+        >
           <Route index element={<Products from="home" />} />
 
           <Route path="cart" element={<CartOverview />} />
           <Route path="search/:query" element={<SearchPage />} />
           <Route path="product/:id" element={<ProductDetail />} />
         </Route>
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       <Toaster
         position="top-center"

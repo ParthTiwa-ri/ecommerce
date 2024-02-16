@@ -53,6 +53,14 @@
   right: 0;
   z-index: 999;
 }
+.logoutIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 24px;
+  cursor: pointer;
+}
 
 .icon {
   display: flex;
@@ -72,6 +80,11 @@
   font-size: 18px;
 }
 
+.cartflex {
+  display: flex;
+  gap: 5rem;
+  cursor: default;
+}
 @media (max-width: 940px) {
   .header {
     padding: 0 2rem;
@@ -129,6 +142,9 @@
   }
   .cartContainer > p {
     font-size: 14px;
+  }
+  .logoutIcon {
+    font-size: 18px;
   }
   .cartNumber {
     height: 1.8rem;
