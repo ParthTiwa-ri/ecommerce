@@ -4,7 +4,7 @@ This React application provides a seamless shopping experience, allowing users t
 
 ## 🚀 Features
 
--- **User Login**: Provides a login page for existing users to authenticate themselves and access their accounts. Implemented using DummyJSON Auth.
+- **User Login**: Provides a login page for existing users to authenticate themselves and access their accounts. Implemented using DummyJSON Auth.
 - **Product Display**: Fetches product data from an external API ([DummyJSON](https://dummyjson.com/docs/products)) and displays them on the home page.
 - **Search Functionality**: Enables users to search for products based on their name, enhancing the shopping experience.
 - **Filtering by Price**: Provides options to filter products based on price range, improving product discovery.
