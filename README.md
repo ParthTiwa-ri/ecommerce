@@ -1,3 +1,8 @@
+# User Account & Shopping App
+
+This React application offers user account management functionalities alongside a shopping experience. Users can create and manage their accounts, browse products, search, filter, and add items to their cart.
+
+
 ## 🚀 Features
 
 - **User Registration:** Allows new users to create an account by providing necessary information such as username, email, and password.
