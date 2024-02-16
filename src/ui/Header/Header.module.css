@@ -42,7 +42,7 @@
   justify-content: center;
   font-size: 1.3rem;
   top: 0;
-  right: 45px;
+  right: 75%;
   transform: translate(30%, -30%);
   transition: all 1sec;
 }

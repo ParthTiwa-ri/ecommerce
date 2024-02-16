@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Search from "../../features/Search/Search";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../../features/user/userSlice";
+import { formatPrice } from "../../util/helper";
 // import Filter from "../../features/Filter/Filter";
 
 function Header() {
@@ -15,6 +16,9 @@ function Header() {
 
   const cartLength = useSelector((state) =>
     state.cart.cart.reduce((sum, item) => sum + item.quantity, 0)
+  );
+  const total = useSelector((state) =>
+    state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0)
   );
   function handlLogOut() {
     dispatch(logout());
@@ -68,7 +72,7 @@ function Header() {
             {cartLength ? (
               <div className={style.cartNumber}>{cartLength}</div>
             ) : null}
-            <p>Cart</p>
+            {cart.length === 0 ? <p>Cart</p> : <p>{formatPrice(total)}</p>}
           </Link>
         </div>
       </div>
@@ -80,3 +84,4 @@ function Header() {
 }
 
 export default Header;
+//
