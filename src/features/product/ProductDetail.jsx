@@ -64,11 +64,14 @@ function ProductDetail() {
       toast.success(`${product.title} Added to cart successfully`);
     }
   }
+  const handleNavigateBack = () => {
+    window.history.go(-1); // This will navigate back by one step in the browser history
+  };
 
   return (
     <>
       <div className={styles.btnpos}>
-        <Link className={styles.backBtn} to="/">
+        <Link className={styles.backBtn} onClick={handleNavigateBack}>
           <Button>
             <Unicons.UilArrowLeft />
             Back
