@@ -79,6 +79,8 @@ To run the application locally:
 
 
 <img width="1440" alt="Screenshot 2024-02-17 at 1 48 17 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/acef0862-6831-454b-afa2-4cf549a50428">
+
 <img width="1440" alt="Screenshot 2024-02-17 at 1 48 24 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/ac15dbfb-72fd-4468-8a1e-b74589601408">
+
 <img width="1440" alt="Screenshot 2024-02-17 at 1 48 44 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/a51882ff-a381-4c77-8d6f-1b00735b87db">
 <img width="1440" alt="Screenshot 2024-02-17 at 1 50 03 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/2ddc0d70-a9aa-4752-ac60-29e7fca6bc6f">
