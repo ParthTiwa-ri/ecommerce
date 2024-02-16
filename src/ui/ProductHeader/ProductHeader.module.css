@@ -7,7 +7,8 @@
   background-color: #fff;
   position: relative;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-  margin-top: 10rem;
+  margin-top: 2rem;
+  /* margin-top: 10rem; */
 }
 
 .title {
@@ -30,6 +31,6 @@
 @media only screen and (max-width: 768px) {
   .container {
     margin: 0 3rem;
-    margin-top: 3rem;
+    margin-top: 2rem;
   }
 }

@@ -10,6 +10,7 @@ import { discountedPrice } from "../../util/helper";
 import ProductHeader from "../../ui/ProductHeader/ProductHeader";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import Filter from "../Filter/Filter";
 
 function SearchPage() {
   const products = useSelector((state) => state.product.productList);
@@ -72,6 +73,7 @@ function SearchPage() {
   }
   return (
     <>
+      <Filter />
       <ProductHeader />
       <div className={styles.cards}>
         {/* <SkelLoading /> */}

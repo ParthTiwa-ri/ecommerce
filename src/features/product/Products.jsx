@@ -8,6 +8,7 @@ import { updateProductList } from "./productSlice";
 import ItemNotFound from "../../ui/ItemNotFound/ItemNotFound";
 import { discountedPrice } from "../../util/helper";
 import ProductHeader from "../../ui/ProductHeader/ProductHeader";
+import Filter from "../Filter/Filter";
 
 function Products() {
   const products = useSelector((state) => state.product.productList);
@@ -69,6 +70,7 @@ function Products() {
   }
   return (
     <>
+      <Filter />
       <ProductHeader />
       <div className={styles.cards}>
         {/* <SkelLoading /> */}
