@@ -1,4 +1,4 @@
-<img width="1440" alt="Screenshot 2024-02-17 at 1 19 04 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/7ed64b64-d4ff-46a1-b73c-ca1137b05c66"># Shopping Experience App
+# Shopping Experience App
 
 This React application provides a seamless shopping experience, allowing users to browse products, search, filter, and add items to their cart.
 
@@ -78,8 +78,7 @@ To run the application locally:
 ## 🖼️ Screenshots
 
 
-<img width="1440" alt="Screenshot 2024-02-17 at 1 50 03 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/2b49541b-9ef5-444d-b377-5e00bbb1187e">
-<img width="1440" alt="Screenshot 2024-02-17 at 1 48 44 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/b0e63612-e3d5-4d0a-ae42-b752ef574f5c">
-<img width="1440" alt="Screenshot 2024-02-17 at 1 48 24 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/f57937cc-ae9c-43d6-801a-11ad0c4895cc">
-<img width="1440" alt="Screenshot 2024-02-17 at 1 48 17 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/73575773-e1a4-49bc-9c7a-c9c85886c9a8">
-
+<img width="1440" alt="Screenshot 2024-02-17 at 1 48 17 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/acef0862-6831-454b-afa2-4cf549a50428">
+<img width="1440" alt="Screenshot 2024-02-17 at 1 48 24 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/ac15dbfb-72fd-4468-8a1e-b74589601408">
+<img width="1440" alt="Screenshot 2024-02-17 at 1 48 44 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/a51882ff-a381-4c77-8d6f-1b00735b87db">
+<img width="1440" alt="Screenshot 2024-02-17 at 1 50 03 AM" src="https://github.com/ParthTiwa-ri/ecommerce/assets/152166714/2ddc0d70-a9aa-4752-ac60-29e7fca6bc6f">
