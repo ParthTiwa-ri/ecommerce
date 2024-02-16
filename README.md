@@ -31,6 +31,8 @@ This React application provides a seamless shopping experience, allowing users t
 
 - **Responsive Design**: Ensures the application adapts seamlessly across various devices, providing a consistent user experience.
 - **Error Handling & Validation**: Implements robust error handling and input validation to enhance stability and user experience.
+- **Authentication Token**: Saves the login token for authorization purposes, ensuring secure access to protected routes.
+- **Protected Routes**: Makes the homepage a protected route, allowing only logged-in users to access it.
 
 ## 🚀 Usage
 
