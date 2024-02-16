@@ -72,6 +72,13 @@
   padding: 2rem;
   box-shadow: 0px 40px 80px 0px rgba(184, 184, 184, 0.3);
 }
+.emptyCart {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 7px 29px 0 rgba(100, 100, 111, 0.2);
+  transition: all 1s ease;
+}
 
 .cardImage {
   flex-basis: 30%;
@@ -205,7 +212,8 @@
   font-weight: 700;
 }
 
-.chkoutBtn {
+.chkoutBtn,
+.chkoutBtn:active {
   margin-top: 5rem;
   width: 100%;
   padding: 1rem;
@@ -219,6 +227,7 @@
   text-transform: uppercase !important;
   background-color: #08c451;
   box-shadow: 0px 15px 30px 0px rgba(8, 196, 81, 0.4);
+  text-decoration: none;
 }
 .chkoutBtnbtm {
   margin-top: 5rem;

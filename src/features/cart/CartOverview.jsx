@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import OrderBtn from "../../ui/OrderBtn/OrderBtn";
 import styles from "./CartOverview.module.css";
@@ -8,12 +9,11 @@ import {
   deleteItem,
   increaseItemQuantity,
 } from "./cartSlice";
-import { useEffect, useState } from "react";
 import { formatPrice } from "../../util/helper";
 import toast from "react-hot-toast";
 import backgroundImg from "../../images/bck.png";
-import { useNavigate } from "react-router-dom";
-// import { useState } from "react";
+import emptycart from "../../images/emptycart.png";
+import { Link, useNavigate } from "react-router-dom";
 
 function CartOverview() {
   const cart = useSelector((state) => state.cart.cart);
@@ -22,19 +22,34 @@ function CartOverview() {
   const total = useSelector((state) =>
     state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0)
   );
+  const cartLength = useSelector((state) =>
+    state.cart.cart.reduce((sum, item) => sum + item.quantity, 0)
+  );
   const [ordplaced, setordplaced] = useState(false);
-  function handlechk() {
-    setordplaced(true);
-    setTimeout(() => {
-      setordplaced(false);
-      dispatch(clearCart());
-      navigate("/");
-    }, 10000);
-  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []); // Empty dependency array ensures this effect runs only once after initial render
+
+  useEffect(() => {
+    let timeoutId;
+    if (ordplaced) {
+      timeoutId = setTimeout(() => {
+        setordplaced(false);
+
+        navigate("/");
+      }, 10000);
+      dispatch(clearCart());
+    }
+    // Cleanup function
+    return () => {
+      clearTimeout(timeoutId);
+    };
+  }, [ordplaced, dispatch, navigate]);
+
+  function handlechk() {
+    setordplaced(true);
+  }
 
   return (
     <>
@@ -49,6 +64,13 @@ function CartOverview() {
             {cart.map((item) => (
               <CartCard key={item.itemId} item={item} />
             ))}
+            {cartLength === 0 && (
+              <img
+                className={styles.emptyCart}
+                src={emptycart}
+                alt="emptyCart"
+              />
+            )}
           </div>
 
           <div className={styles.checkOut}>
@@ -62,24 +84,42 @@ function CartOverview() {
                 <p>TOTAL</p>
                 <span className={styles.bold}>{formatPrice(total)}</span>
               </div>
-              <button
-                onClick={handlechk}
-                disabled={ordplaced}
-                className={styles.chkoutBtn}
-              >
-                Proceed to checkout
-              </button>
+
+              {cartLength === 0 ? (
+                <Link to="/">
+                  <button disabled={ordplaced} className={styles.chkoutBtn}>
+                    Shop our products
+                  </button>
+                </Link>
+              ) : (
+                <button
+                  onClick={handlechk}
+                  disabled={ordplaced}
+                  className={styles.chkoutBtn}
+                >
+                  Buy Now
+                </button>
+              )}
             </div>
           </div>
         </div>
       </div>
-      <button
-        onClick={handlechk}
-        disabled={ordplaced}
-        className={styles.chkoutBtnbtm}
-      >
-        Proceed to checkout
-      </button>
+
+      {cartLength === 0 ? (
+        <Link to="/">
+          <button disabled={ordplaced} className={styles.chkoutBtnbtm}>
+            Shop our products
+          </button>
+        </Link>
+      ) : (
+        <button
+          onClick={handlechk}
+          disabled={ordplaced}
+          className={styles.chkoutBtnbtm}
+        >
+          Buy Now
+        </button>
+      )}
     </>
   );
 }

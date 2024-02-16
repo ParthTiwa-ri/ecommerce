@@ -30,6 +30,9 @@ function Header() {
           <div className={style.searchHide}>
             <Search />
           </div>
+          {/* <div className={style.filterHide}>
+            <Filter />
+          </div> */}
         </div>
 
         {/* <Filter /> */}
