@@ -119,6 +119,9 @@
 }
 
 @media (max-width: 940px) {
+  .cartContainer {
+    gap: 1rem;
+  }
   .header {
     padding: 0 2rem;
     justify-content: space-between;
@@ -175,7 +178,6 @@
   }
   .cartContainer {
     font-size: 24px;
-    padding-right: 0.2rem;
   }
   .cartContainer > p {
     font-size: 14px;
@@ -186,7 +188,7 @@
   .cartNumber {
     height: 1.8rem;
     width: 1.8rem;
-    right: 36px;
+    right: 75%;
   }
   .searchHide {
     display: none;
