@@ -30,7 +30,20 @@ function CheckoutProcess() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the shipping and payment info to your backend for processing
+    if (!shippingInfo.name || !shippingInfo.address) {
+      alert("Please enter both name and address for shipping information.");
+      return;
+    }
+
+    if (
+      !paymentInfo.cardNumber ||
+      !paymentInfo.expiryDate ||
+      !paymentInfo.cvv
+    ) {
+      alert("Please enter all payment information fields.");
+      return;
+    }
+
     setIsSubmitted(true);
   };
 
