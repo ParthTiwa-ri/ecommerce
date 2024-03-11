@@ -16,6 +16,7 @@ This React application provides a seamless shopping experience, allowing users t
 - **React v16+**: For building the user interface and managing component-based architecture.
 - **React Router**: Handles navigation within the application, ensuring a smooth user experience.
 - **React Query**: Handles data fetching, caching, and synchronization with the server for improved performance.
+- **Redux Toolkit**: Handles global state management such as add to cart and other global states.
 - **Iconify Library**: Used for accessing and incorporating icons into the application for better visual representation.
 - **CSS Modules**: Implements modular and scoped styling for components, ensuring maintainability and avoiding style conflicts.
 
