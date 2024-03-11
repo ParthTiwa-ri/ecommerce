@@ -48,7 +48,7 @@ function CartOverview() {
   }, [ordplaced, dispatch, navigate]);
 
   function handlechk() {
-    setordplaced(true);
+    navigate("/checkout");
   }
 
   return (
@@ -97,7 +97,7 @@ function CartOverview() {
                   disabled={ordplaced}
                   className={styles.chkoutBtn}
                 >
-                  Buy Now
+                  Proceed to Checkout
                 </button>
               )}
             </div>
@@ -117,7 +117,7 @@ function CartOverview() {
           disabled={ordplaced}
           className={styles.chkoutBtnbtm}
         >
-          Buy Now
+          Proceed to Checkout
         </button>
       )}
     </>

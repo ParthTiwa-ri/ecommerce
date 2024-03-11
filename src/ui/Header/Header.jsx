@@ -3,16 +3,22 @@ import headIcon from "../../images/headIcon.png";
 import { useDispatch, useSelector } from "react-redux";
 import Search from "../../features/Search/Search";
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../../features/user/userSlice";
+// import { logout } from "../../features/user/userSlice";
 import { formatPrice } from "../../util/helper";
+import { useAuth } from "../../Context/AuthContext";
+import { useAccounts } from "../../Context/AccountsContext";
+import { clearCart } from "../../features/cart/cartSlice";
 // import Filter from "../../features/Filter/Filter";
 
 function Header() {
   const cart = useSelector((state) => state.cart.cart);
-  const dispatch = useDispatch();
+
   const navigate = useNavigate();
-  const name = useSelector((state) => state.user.name);
-  const image = useSelector((state) => state.user.image);
+  const { currAcc } = useAccounts();
+  const dispatch = useDispatch();
+  // const name = useSelector((state) => state.user.name);s
+  // const image = useSelector((state) => state.user.image);
+  const { isAuthenticated, setAuthenticated } = useAuth();
 
   const cartLength = useSelector((state) =>
     state.cart.cart.reduce((sum, item) => sum + item.quantity, 0)
@@ -21,8 +27,9 @@ function Header() {
     state.cart.cart.reduce((sum, item) => sum + item.totalPrice, 0)
   );
   function handlLogOut() {
-    dispatch(logout());
-    navigate("/login");
+    setAuthenticated(false);
+    navigate("/signin");
+    dispatch(clearCart());
   }
   return (
     <>
@@ -51,17 +58,16 @@ function Header() {
         {/* <Filter /> */}
         <div className={`${style.cartContainer} ${style.cartflex}`}>
           <div className={style.usericon}>
-            <div className={style.userimg}>
-              <img src={image} alt="userimage" />
-            </div>
-            <div className={style.flex}>
-              <p>Welcome </p>
-              <span>{name}</span>
-            </div>
+            {isAuthenticated && (
+              <div className={style.flex}>
+                <p>Welcome </p>
+                <span>{currAcc.name}</span>
+              </div>
+            )}
           </div>
           <div onClick={handlLogOut} className={style.logoutIcon}>
-            <ion-icon name="log-out-outline"></ion-icon>
-            <p>Logout</p>
+            {isAuthenticated && <ion-icon name="log-out-outline"></ion-icon>}
+            {isAuthenticated ? <p>Logout</p> : <p>Sign In</p>}
           </div>
           <Link to="/cart" className={style.cartContainer}>
             {cart.length === 0 ? (

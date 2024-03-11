@@ -1,19 +1,20 @@
 /* eslint-disable react/prop-types */
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../Context/AuthContext";
 
 function ProtectedRoutes({ children }) {
-  const isAuth = useSelector((state) => state.user.isAuth);
+  const { isAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuth) {
-      navigate("/login");
+    if (!isAuthenticated) {
+      navigate("/signin");
     }
-  }, [isAuth, navigate]);
+  }, [isAuthenticated, navigate]);
 
-  return isAuth ? children : null;
+  return isAuthenticated ? children : null;
 }
 
 export default ProtectedRoutes;
