@@ -26,6 +26,12 @@ function SignUp() {
   const { setAuthenticated } = useAuth();
 
   // const [role, setRole] = React.useState("");
+  React.useEffect(() => {
+    document.documentElement.style.fontSize = "100%";
+    return () => {
+      document.documentElement.style.fontSize = "62.5%";
+    };
+  }, []);
 
   function addAccount(newuser) {
     setAccounts((acc) => [...acc, newuser]);

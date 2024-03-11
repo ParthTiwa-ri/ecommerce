@@ -16,6 +16,7 @@ import SignUp from "./pages/Signup";
 import { AuthProvider } from "./Context/AuthContext";
 import SignIn from "./pages/Sigin";
 import CheckoutProcess from "./features/Checkout/Checkout";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -37,7 +38,15 @@ function App() {
               <Route path="/signin" element={<SignIn />} />
               <Route path="/" element={<Home />}>
                 <Route index element={<Products />} />
-                <Route path="checkout" element={<CheckoutProcess />} />
+
+                <Route
+                  path="checkout"
+                  element={
+                    <ProtectedRoutes>
+                      <CheckoutProcess />
+                    </ProtectedRoutes>
+                  }
+                />
 
                 <Route path="cart" element={<CartOverview />} />
                 <Route path="search/:query" element={<SearchPage />} />

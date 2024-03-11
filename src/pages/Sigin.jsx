@@ -20,6 +20,12 @@ function SignIn() {
   const navigate = useNavigate();
   const [error, setError] = React.useState("");
   const { setAuthenticated } = useAuth();
+  React.useEffect(() => {
+    document.documentElement.style.fontSize = "100%";
+    return () => {
+      document.documentElement.style.fontSize = "62.5%";
+    };
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
