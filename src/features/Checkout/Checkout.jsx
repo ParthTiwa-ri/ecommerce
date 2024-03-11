@@ -1,9 +1,11 @@
 import { useState } from "react";
 import "./CheckoutProcess.css"; // Import CSS file for styling
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCart } from "../cart/cartSlice";
 
 function CheckoutProcess() {
   //   const cart = useState((state) => state.cart.cart);
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
   const [shippingInfo, setShippingInfo] = useState({ name: "", address: "" });
   const [paymentInfo, setPaymentInfo] = useState({
@@ -43,7 +45,7 @@ function CheckoutProcess() {
       alert("Please enter all payment information fields.");
       return;
     }
-
+    dispatch(clearCart());
     setIsSubmitted(true);
   };
 
