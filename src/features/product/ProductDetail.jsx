@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem } from "../cart/cartSlice";
 import toast from "react-hot-toast";
 import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "../../Context/AuthContext";
+// import { useAuth } from "../../Context/AuthContext";
 
 function ProductDetail() {
   const [product, setProduct] = useState({}); // Initialize product state as an empty object
@@ -22,7 +22,7 @@ function ProductDetail() {
   const cart = useSelector((state) => state.cart.cart);
   const isInCart = cart.find((item) => item.itemId === product.id);
   const navigate = useNavigate();
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
   const unitPrice = product
     ? discountedPrice(product.price, product.discountPercentage)
     : 0;
@@ -61,8 +61,6 @@ function ProductDetail() {
 
     if (isInCart) {
       toast.error("Already in cart");
-    } else if (isAuthenticated === false) {
-      toast.error("Please Login First");
     } else {
       dispatch(addItem(newItem));
       toast.success(`${product.title} Added to cart successfully`);

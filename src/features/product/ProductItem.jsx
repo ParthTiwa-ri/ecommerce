@@ -11,11 +11,11 @@ import Skeleton from "react-loading-skeleton";
 import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { addItem } from "../cart/cartSlice";
-import { useAuth } from "../../Context/AuthContext";
+// import { useAuth } from "../../Context/AuthContext";
 function ProductItem({ item }) {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.cart);
-  const { isAuthenticated } = useAuth();
+  // const { isAuthenticated } = useAuth();
 
   const isInCart = cart.find((items) => items.itemId === item.id);
   const navigate = useNavigate();
@@ -33,8 +33,6 @@ function ProductItem({ item }) {
     };
     if (isInCart) {
       toast.error("Already in cart");
-    } else if (isAuthenticated === false) {
-      toast.error("Please Login First");
     } else {
       dispatch(addItem(newItem));
       toast.success(`${item.title} Added to cart successfully`);
